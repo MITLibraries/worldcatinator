@@ -1,0 +1,17 @@
+{
+   "data": null,
+   "errors": [
+      {
+         "message": "Record 'asdf' not found",
+         "locations": [
+            {
+               "line": 2,
+               "column": 3
+            }
+         ],
+         "path": [
+            "recordId"
+         ]
+      }
+   ]
+}
