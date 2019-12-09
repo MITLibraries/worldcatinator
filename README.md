@@ -1,4 +1,4 @@
-# renorect (RENOvation rediRECT)
+# worldcatinator (formerly renorect: RENOvation rediRECT)
 
 ## What is this?
 
@@ -20,9 +20,9 @@ repository.
 Clone the repo and install the dependencies using [Pipenv](https://docs.pipenv.org/):
 
 ```shell
-git clone git@github.com:MITLibraries/renorect.git
+git clone git@github.com:MITLibraries/worldcatinator.git
 
-cd renorect
+cd worldcatinator
 
 pipenv shell
 
@@ -34,7 +34,7 @@ pipenv install
 To build and run in docker:
 
 ```bash
-docker build -t renorect .
+docker build -t worldcatinator .
 
-docker run -it -p 5000:5000 renorect
+docker run -it -p 5000:5000 worldcatinator
 ```

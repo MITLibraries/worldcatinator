@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO)
 
 
 @app.route('/')
-def redirector():
+def worldcatinator():
 
     bibid = request.args.get('bibid')
     if not bibid:
