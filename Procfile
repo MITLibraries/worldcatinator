@@ -1,1 +1,1 @@
-web: gunicorn redirector:app --log-file -
+web: gunicorn worldcatinator:app --log-file -

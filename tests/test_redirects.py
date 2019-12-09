@@ -1,14 +1,14 @@
 import os
 import pytest
-import redirector
+import worldcatinator
 import requests_mock
 
 
 @pytest.fixture
 def client():
-    redirector.app.config['TESTING'] = True
+    worldcatinator.app.config['TESTING'] = True
 
-    with redirector.app.test_client() as client:
+    with worldcatinator.app.test_client() as client:
         yield client
 
 

@@ -5,5 +5,5 @@
 # defaults that can locally be overriden with .env and production overriden
 # by setting env appropriate to your platform.
 
-FLASK_APP=redirector
+FLASK_APP=worldcatinator
 FLASK_ENV=development
