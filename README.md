@@ -38,3 +38,10 @@ docker build -t worldcatinator .
 
 docker run -it -p 5000:5000 worldcatinator
 ```
+
+## Environment Variables
+
+- `SENTRY_DSN` (optional). If set to a valid value (obtain from Sentry),
+  exceptions will be sent to Sentry
+- `TIMDEX_URL` (default is to production TIMDEX). Set to stage, PR or local
+  TIMDEX endpoint if you have reason to do so
