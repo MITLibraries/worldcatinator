@@ -2,8 +2,18 @@ import logging
 import os
 
 import requests
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
 
 from flask import Flask, redirect, request
+
+sentry_dsn = os.getenv('SENTRY_DSN') or None
+
+if sentry_dsn:
+    sentry_sdk.init(
+        sentry_dsn,
+        integrations=[FlaskIntegration()]
+    )
 
 app = Flask(__name__)
 app.config['TIMDEX_URL'] = os.getenv('TIMDEX_URL',
@@ -47,3 +57,8 @@ def worldcatinator():
 @app.route('/ping')
 def ping():
     return "pong"
+
+
+@app.route('/debug-sentry')
+def trigger_error():
+    1 / 0

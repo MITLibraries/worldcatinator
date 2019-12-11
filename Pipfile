@@ -15,6 +15,7 @@ requests-mock = "*"
 flask = "*"
 gunicorn = "*"
 requests = "*"
+sentry-sdk = {extras = ["flask"],version = "*"}
 
 [requires]
 python_version = "3.7"
