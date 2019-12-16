@@ -29,7 +29,7 @@ def worldcatinator():
     bibid = request.args.get('bibid')
     if not bibid:
         logging.info(f"No bib id supplied")
-        return redirect("https://mit.worldcat.org/", code=302)
+        return redirect("https://mit.on.worldcat.org/", code=302)
 
     url = app.config['TIMDEX_URL']
 
@@ -39,19 +39,19 @@ def worldcatinator():
 
     if retrieve.status_code != 200:
         logging.info(f"TIMDEX response code: {retrieve.status_code}")
-        return redirect("https://mit.worldcat.org/", code=302)
+        return redirect("https://mit.on.worldcat.org/", code=302)
 
     data = retrieve.json()
     if 'errors' in data:
         logging.info('Errors in data returned from TIMDEX')
-        return redirect("https://mit.worldcat.org/", code=302)
+        return redirect("https://mit.on.worldcat.org/", code=302)
 
     if not data['data']['recordId']['oclcs']:
         logging.info('No oclcs found in data returned from TIMDEX')
-        return redirect("https://mit.worldcat.org/", code=302)
+        return redirect("https://mit.on.worldcat.org/", code=302)
 
     oclc = data['data']['recordId']['oclcs'][0]
-    return redirect(f"https://mit.worldcat.org/oclc/{oclc}", code=302)
+    return redirect(f"https://mit.on.worldcat.org/oclc/{oclc}", code=302)
 
 
 @app.route('/ping')

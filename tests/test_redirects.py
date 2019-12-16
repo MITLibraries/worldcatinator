@@ -33,7 +33,7 @@ def test_redirect_to_item(client):
         m.post(requests_mock.ANY, status_code=200,
                text=load_response('002544293.json'))
         response = client.get('/?bibid=002544293')
-        assert 'https://mit.worldcat.org/oclc/962751146' in response.location
+        assert 'https://mit.on.worldcat.org/oclc/962751146' in response.location
 
 
 def test_redirect_generic_bad_bibid(client):
@@ -41,14 +41,14 @@ def test_redirect_generic_bad_bibid(client):
         m.post(requests_mock.ANY, status_code=200,
                text=load_response('bad_bibid.json'))
         response = client.get('/?bibid=asdf')
-        assert 'https://mit.worldcat.org/' in response.location
+        assert 'https://mit.on.worldcat.org/' in response.location
 
 
 def test_redirect_bad_response(client):
     with requests_mock.Mocker() as m:
         m.post(requests_mock.ANY, status_code=500)
         response = client.get('/?bibid=asdf')
-        assert 'https://mit.worldcat.org/' in response.location
+        assert 'https://mit.on.worldcat.org/' in response.location
 
 
 def test_redirect_no_oclcs(client):
@@ -56,14 +56,14 @@ def test_redirect_no_oclcs(client):
         m.post(requests_mock.ANY, status_code=200,
                text=load_response('no_oclcs.json'))
         response = client.get('/?bibid=002544293')
-        assert 'https://mit.worldcat.org/' in response.location
+        assert 'https://mit.on.worldcat.org/' in response.location
 
 
 def test_redirect_with_no_bibid(client):
     response = client.get('/?yo=stuff')
-    assert 'https://mit.worldcat.org/' in response.location
+    assert 'https://mit.on.worldcat.org/' in response.location
 
 
 def test_redirect_with_no_args(client):
     response = client.get('/')
-    assert 'https://mit.worldcat.org/' in response.location
+    assert 'https://mit.on.worldcat.org/' in response.location
