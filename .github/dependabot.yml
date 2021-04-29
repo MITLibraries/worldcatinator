@@ -1,0 +1,33 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "09:00"
+    timezone: America/New_York
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: python-dotenv
+    versions:
+    - 0.15.0
+    - 0.16.0
+  - dependency-name: flake8
+    versions:
+    - 3.8.4
+    - 3.9.0
+  - dependency-name: sentry-sdk
+    versions:
+    - 0.19.5
+    - 0.20.0
+    - 0.20.2
+    - 0.20.3
+  - dependency-name: pytest
+    versions:
+    - 6.2.2
+  - dependency-name: coveralls
+    versions:
+    - 3.0.0
+  - dependency-name: requests-mock
+    versions:
+    - 1.8.0
